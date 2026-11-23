@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" viewBox="0 0 1200 150" role="img" aria-label="Highlights: 94.55% top-1 accuracy, 196 car classes (RescueLens); 0% unsafe answers vs 43–70% for LLM baselines (Query2Diagnose); Top 30 Asian Hackathon for Green Future (SETHU · finale in Vietnam); 10 hackathons &amp; build sprints (2 finales)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Highlights: 94.55% top-1 accuracy, 196 car classes (RescueLens); 0% unsafe answers vs 43–70% for LLM baselines (Query2Diagnose); Top 30 Asian Hackathon for Green Future (SETHU · finale in Vietnam); 10 hackathons &amp; build sprints (2 finales)</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1424"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f9dff"/><stop offset="1" stop-color="#38d6c4"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".07"/></pattern>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4f9dff" stop-opacity=".28"/><stop offset="1" stop-color="#4f9dff" stop-opacity="0"/></radialGradient>
+</defs>
+<style></style>
+<rect width="1200" height="150" rx="18" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="1199" height="149" rx="17.5" fill="none" stroke="#1f3556"/>
+<text x="40.0" y="66" font-size="38" font-weight="700" fill="url(#accent)">94.55%</text>
+<text x="40.0" y="96" font-size="17" fill="#c3d0e2">top-1 accuracy, 196 car classes</text>
+<text x="40.0" y="122" font-size="15.5" font-weight="600" fill="#8ea3bf">RescueLens</text>
+<line x1="300.0" y1="30" x2="300.0" y2="120" stroke="#1f3556"/>
+<text x="340.0" y="66" font-size="38" font-weight="700" fill="url(#accent)">0% unsafe</text>
+<text x="340.0" y="96" font-size="17" fill="#c3d0e2">answers vs 43–70% for LLM baselines</text>
+<text x="340.0" y="122" font-size="15.5" font-weight="600" fill="#8ea3bf">Query2Diagnose</text>
+<line x1="600.0" y1="30" x2="600.0" y2="120" stroke="#1f3556"/>
+<text x="640.0" y="66" font-size="38" font-weight="700" fill="url(#accent)">Top 30</text>
+<text x="640.0" y="96" font-size="17" fill="#c3d0e2">Asian Hackathon for Green Future</text>
+<text x="640.0" y="122" font-size="15.5" font-weight="600" fill="#8ea3bf">SETHU · finale in Vietnam</text>
+<line x1="900.0" y1="30" x2="900.0" y2="120" stroke="#1f3556"/>
+<text x="940.0" y="66" font-size="38" font-weight="700" fill="url(#accent)">10</text>
+<text x="940.0" y="96" font-size="17" fill="#c3d0e2">hackathons &amp; build sprints</text>
+<text x="940.0" y="122" font-size="15.5" font-weight="600" fill="#8ea3bf">2 finales</text>
+</svg>

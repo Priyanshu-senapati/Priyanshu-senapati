@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="330" viewBox="0 0 600 330" role="img" aria-label="Dor: Every missed dose, refill and doctor visit gets one responsible person, with escalation and duplicate-medicine checks. The elder stays in control. 100 Lighthouse accessibility score." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Dor: Every missed dose, refill and doctor visit gets one responsible person, with escalation and duplicate-medicine checks. The elder stays in control. 100 Lighthouse accessibility score.</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1424"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f9dff"/><stop offset="1" stop-color="#38d6c4"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".07"/></pattern>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4f9dff" stop-opacity=".28"/><stop offset="1" stop-color="#4f9dff" stop-opacity="0"/></radialGradient>
+</defs>
+<style></style>
+<rect width="600" height="330" rx="18" fill="#0d1b30"/>
+<rect width="600" height="330" rx="18" fill="url(#dots)"/>
+<rect x=".5" y=".5" width="599" height="329" rx="17.5" fill="none" stroke="#1f3556"/>
+<rect x="32" y="0" width="64" height="4" rx="2" fill="url(#accent)"/>
+<text x="32" y="44" font-size="13.5" font-weight="600" letter-spacing="1.5" fill="#8ea3bf">HEALTHTECH · ELDER CARE</text>
+<text x="32" y="86" font-size="31" font-weight="700" fill="#eef3fa">Dor</text>
+<rect x="511.8" y="66" width="56.2" height="24.5" rx="12.25" fill="#38d6c4" fill-opacity=".16" stroke="#38d6c4" stroke-opacity=".55"/><text x="539.9" y="83.0" text-anchor="middle" font-size="12.5" font-weight="600" fill="#38d6c4">LIVE</text>
+<text x="32" y="122" font-size="16.5" fill="#c3d0e2">Every missed dose, refill and doctor visit gets one responsible person,</text>
+<text x="32" y="146" font-size="16.5" fill="#c3d0e2">with escalation and duplicate-medicine checks. The elder stays in</text>
+<text x="32" y="170" font-size="16.5" fill="#c3d0e2">control.</text>
+<line x1="32" y1="206" x2="568" y2="206" stroke="#1f3556"/>
+<text x="32" y="254" font-size="36" font-weight="700" fill="url(#accent)">100</text>
+<text x="115.9" y="236" font-size="15.5" fill="#8ea3bf">Lighthouse</text>
+<text x="115.9" y="255" font-size="15.5" fill="#8ea3bf">accessibility score</text>
+<rect x="32.0" y="276" width="71.5" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="67.7" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Next.js</text>
+<rect x="111.5" y="276" width="83.0" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="153.0" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Postgres</text>
+<rect x="202.5" y="276" width="71.6" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="238.3" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Gemini</text>
+<rect x="282.1" y="276" width="66.5" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="315.4" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Vercel</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="330" viewBox="0 0 600 330" role="img" aria-label="Neralu: Phones older people who live alone when the heat crosses their own threshold. A worrying keypad answer sends a volunteer to the door. 287 tests, and no model in the safety loop." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Neralu: Phones older people who live alone when the heat crosses their own threshold. A worrying keypad answer sends a volunteer to the door. 287 tests, and no model in the safety loop.</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1424"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f9dff"/><stop offset="1" stop-color="#38d6c4"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".07"/></pattern>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4f9dff" stop-opacity=".28"/><stop offset="1" stop-color="#4f9dff" stop-opacity="0"/></radialGradient>
+</defs>
+<style></style>
+<rect width="600" height="330" rx="18" fill="#0d1b30"/>
+<rect width="600" height="330" rx="18" fill="url(#dots)"/>
+<rect x=".5" y=".5" width="599" height="329" rx="17.5" fill="none" stroke="#1f3556"/>
+<rect x="32" y="0" width="64" height="4" rx="2" fill="url(#accent)"/>
+<text x="32" y="44" font-size="13.5" font-weight="600" letter-spacing="1.5" fill="#8ea3bf">PUBLIC HEALTH · HACK4SDG 2026</text>
+<text x="32" y="86" font-size="31" font-weight="700" fill="#eef3fa">Neralu</text>
+<rect x="494.6" y="66" width="73.4" height="24.5" rx="12.25" fill="#f0b45a" fill-opacity=".16" stroke="#f0b45a" stroke-opacity=".55"/><text x="531.3" y="83.0" text-anchor="middle" font-size="12.5" font-weight="600" fill="#f0b45a">FINALE</text>
+<text x="32" y="122" font-size="16.5" fill="#c3d0e2">Phones older people who live alone when the heat crosses their own</text>
+<text x="32" y="146" font-size="16.5" fill="#c3d0e2">threshold. A worrying keypad answer sends a volunteer to the door.</text>
+<line x1="32" y1="206" x2="568" y2="206" stroke="#1f3556"/>
+<text x="32" y="254" font-size="36" font-weight="700" fill="url(#accent)">287</text>
+<text x="115.9" y="236" font-size="15.5" fill="#8ea3bf">tests, and no model</text>
+<text x="115.9" y="255" font-size="15.5" fill="#8ea3bf">in the safety loop</text>
+<rect x="32.0" y="276" width="83.1" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="73.6" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">FastAPI</text>
+<rect x="123.1" y="276" width="112.9" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="179.6" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Twilio Voice</text>
+<rect x="244.0" y="276" width="99.7" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="293.9" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">Sarvam AI</text>
+<rect x="351.8" y="276" width="84.2" height="26.5" rx="13.25" fill="none" fill-opacity="0" stroke="#4f9dff" stroke-opacity=".55"/><text x="393.9" y="295.0" text-anchor="middle" font-size="14.5" font-weight="600" fill="#4f9dff">React 19</text>
+</svg>
