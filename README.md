@@ -12,6 +12,12 @@ Hi, I'm Priyanshu. I study computer science (AI and ML) at RV University in Beng
 
 <img src="assets/terminal.svg" width="100%" alt="A terminal. Q: does your AI guess when it isn't sure? A: no. RescueLens refused to guess on 58 of 60 cars it had never seen. Q: is it any good? A: 94.55% top-1 across 196 car classes. Q: and the LLM agent? A: Query2Diagnose: 0% unsafe answers on 300 cases; LLM baselines 43–70%. Q: does any of it have tests? A: 790 across four projects: ULTRON 337, Neralu 287, RescueLens 94, Voyance 72. Q: hackathons? A: 10 so far; 2 finales: Hack4SDG 2026, and Top 30 in Vietnam. Q: what's his best project? A: not certain. refusing to guess. scroll down and judge for yourself.">
 
+## What I'm building right now
+
+<a href="https://github.com/Priyanshu-senapati/Ultron"><img src="assets/ultron.svg" width="100%" alt="Notebook sketch of ULTRON, a personal AI that runs on my laptop: 19 processes, 337 tests. Four Rust processes (input hooks, insight pulse, memory engine, ghost for encrypted LAN sync) and fifteen Python ones (voice, LLM router, tools and agents, privacy router and ten more) share one WebSocket bus that needs a token. If one crashes, the rest keep going. Every event goes into a hash-chained log that rejects edits and deletes. The privacy router sends a cloud model only text with names, paths and secrets stripped; money, health and files never leave the laptop."></a>
+
+Latest: I cut about a second off every LLM request and brought `ultron status` down from 18 s to 2 s. Next, a deep-work mode that holds back interruptions, and a 10-second catch-up brief for when I come back to my desk.
+
 ## Things I've built
 
 <p>
@@ -20,7 +26,7 @@ Hi, I'm Priyanshu. I study computer science (AI and ML) at RV University in Beng
 </p>
 <p>
 <a href="https://github.com/Priyanshu-senapati/Neralu"><img src="assets/card-neralu.svg" width="49%" alt="Index card. Neralu (ನೆರಳು): heatwave check-ins for older people. Hack4SDG 2026 finale, 287 tests."></a>
-<a href="https://github.com/Priyanshu-senapati/Ultron"><img src="assets/card-ultron.svg" width="49%" alt="Index card. ULTRON: a personal AI that runs locally, 19 processes on one WebSocket bus, 337 tests."></a>
+<a href="https://github.com/Priyanshu-senapati/kaavalu"><img src="assets/card-kaavalu.svg" width="49%" alt="Index card. Kaavalu (ಕಾವಲು): an Android app that spots a 'digital arrest' scam while the call is still going, warns the person in their own language and texts their family. No call recording, no blocklists. App Lab, Kalpavikas 2.0."></a>
 </p>
 <p>
 <a href="https://github.com/Priyanshu-senapati/Dor"><img src="assets/card-dor.svg" width="49%" alt="Index card. Dor (डोर): care coordination for families. Lighthouse accessibility score 100."></a>
@@ -31,11 +37,16 @@ Hi, I'm Priyanshu. I study computer science (AI and ML) at RV University in Beng
 
 | Project | What it does | Built for |
 |---|---|---|
-| **[Kaavalu](https://github.com/Priyanshu-senapati/kaavalu)** | On-device Android app that spots a "digital arrest" scam call while it's happening | App Lab, Kalpavikas 2.0 |
 | **[Chaabi](https://github.com/Priyanshu-senapati/UGREEN)** | Privacy-first AI skill that maps a family's assets and nominees from a home NAS | UGREEN AI NAS Hackathon 2026 |
 | **[Karigar AI](https://github.com/gd23456/SIH2026)** | Cut photo processing from 30 s to 1 s, with a 9-language UI | Smart India Hackathon 2026 |
 | **SETHU (AgroSense)** | Satellite data and XGBoost warn rice farmers of crop stress 10–14 days ahead, by SMS | Asian Hackathon for Green Future, Top 30 |
 | **ClaimCourt AI** | Insurance claims argued by defense, prosecution and auditor agents, decided by a rule engine | AI Build Sprint |
+
+## Things I learned building these
+
+- An unreadable photo isn't a safe one. Kaavalu used to score a blurry notice as zero, which looked like an all-clear for something it had never read. Now it says "unreadable".
+- Software should hand the big calls to a person. Neralu never phones an ambulance itself: it sends a neighbour or a volunteer to the door, and a human decides.
+- Keep the risky parts small. In ULTRON, any process can crash without taking the others down, and nothing writes, deletes or runs a shell command until I approve it.
 
 ## Where I've worked
 

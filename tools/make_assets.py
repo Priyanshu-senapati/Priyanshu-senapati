@@ -3,7 +3,8 @@
 Run:  python tools/make_assets.py   (writes assets/*.svg)
 
 Design: things on a desk. A graph-paper notebook page (hero), a terminal you can
-"ask" (results), handwritten index cards (projects) and sticky notes (toolbox).
+"ask" (results), a notebook sketch of ULTRON (what I'm building now), handwritten
+index cards (projects) and sticky notes (toolbox).
 Handwriting is Kalam (Indian Type Foundry, also covers Devanagari); the terminal is
 JetBrains Mono; Kannada is Noto Sans Kannada. Fonts are embedded as subsets so the
 page renders the same everywhere. Every number comes from the resume: change it
@@ -73,7 +74,7 @@ def measure(s: str, size: float, weight: int = 400, family: str = HAND) -> float
 
 
 def font_face(family: str, weight: int, chars: str) -> str:
-    font = TTFont(io.BytesIO(_instance_bytes(family, weight)))
+    font = TTFont(io.BytesIO(_instance_bytes(family, weight)), recalcTimestamp=False)  # same bytes every build
     opts = subset.Options()
     opts.layout_features = ["*"]  # keep shaping features: Kannada and Devanagari need them
     opts.notdef_outline = True
@@ -289,6 +290,81 @@ def terminal() -> str:
     return s.render(style)
 
 
+# ------------------------------------------------------------------ ULTRON: what I'm building right now
+ULTRON_RUST = [("input hooks", "keys and windows"), ("insight pulse", "focus and tension"),
+               ("memory engine", "learns my rhythm"), ("ghost", "encrypted sync")]
+ULTRON_PY = [("voice", "“Hey Ultron”"), ("LLM router", "local model first"), ("tools + agents", "risky ones ask me"),
+             ("+10 more", "money, planner…"), ("privacy router", "checks what leaves")]
+assert len(ULTRON_RUST) + (1 + 1 + 2 + 10 + 1) == 19  # 4 Rust + 15 Python processes
+
+
+def ultron_sketch() -> str:
+    W, H = 1200, 600
+    bw, col = 150, [70 + i * 157 for i in range(5)]
+    s = Svg(W, H, "Notebook sketch of ULTRON, a personal AI that runs on my laptop: 19 processes, 337 tests. "
+                  "Four Rust processes (input hooks, insight pulse, memory engine, ghost, encrypted LAN sync) and fifteen Python ones "
+                  "(voice, LLM router, tools and agents, privacy router and ten more) share one WebSocket bus that needs a token. "
+                  "If one crashes, the rest keep going. Every event goes into a hash-chained log that rejects edits and deletes. "
+                  "The privacy router sends a cloud model only text with names, paths and secrets stripped; money, health and files never leave.")
+    s.raw(f'<rect width="{W}" height="{H}" rx="14" fill="{PAPER}"/><rect width="{W}" height="{H}" rx="14" fill="url(#quad)"/>')
+    s.text(60, 70, "ULTRON", 46, weight=700)
+    s.raw(rough(58, 84, 62 + measure("ULTRON", 46, 700), 82, BLUE, 2.4))
+    s.text(60, 112, "a personal AI that runs on my laptop, not in the cloud. 19 processes, 337 tests.", 21, fill=PENCIL)
+
+    s.raw(f'<rect x="40" y="132" width="860" height="444" rx="18" fill="none" stroke="{PENCIL}" stroke-width="2" '
+          f'stroke-dasharray="10 8" filter="url(#wobble)"/>')
+    s.text(880, 160, "my laptop", 20, fill=PENCIL, anchor="end")
+
+    def box(x, y, name, detail, color=BLUE):
+        assert measure(name, 19, 700) <= bw - 20 and measure(detail, 16) <= bw - 20, f"ULTRON box overflows: {name}"
+        s.raw(f'<rect x="{x}" y="{y}" width="{bw}" height="60" fill="#fff"/>' + rough_rect(x, y, bw, 60, color, 2))
+        s.text(x + 12, y + 26, name, 19, weight=700, fill=color)
+        s.text(x + 12, y + 48, detail, 16, fill=PENCIL)
+
+    s.text(70, 192, "Rust, 4 processes", 19, fill=PENCIL)
+    for x, (name, detail) in zip(col, ULTRON_RUST):
+        s.raw(rough(x + bw / 2, 264, x + bw / 2, 300, BLUE2, 1.8))
+        box(x, 204, name, detail)
+    s.text(col[4] + 6, 230, "if one crashes,", 19, fill=PENCIL)
+    s.text(col[4] + 6, 256, "the rest keep going", 19, fill=PENCIL)
+
+    s.raw(f'<rect x="60" y="300" width="820" height="28" fill="#dbe6fb"/>' + rough(60, 300, 880, 300, BLUE, 2.6) + rough(60, 328, 880, 328, BLUE, 2.6))
+    s.text(470, 320, "one WebSocket bus: every process signs in with a token", 17, fill=BLUE, anchor="middle")
+
+    for i, (x, (name, detail)) in enumerate(zip(col, ULTRON_PY)):
+        s.raw(rough(x + bw / 2, 328, x + bw / 2, 376, BLUE2, 1.8))
+        box(x, 376, name, detail, HV if i == 4 else BLUE)
+    s.text(70, 464, "Python, 15 processes", 19, fill=PENCIL)
+
+    s.text(70, 512, "every event goes into a hash-chained log", 19, fill=PENCIL)
+    for k in range(7):
+        x = 70 + k * 58
+        s.raw(f'<rect x="{x}" y="526" width="44" height="24" rx="4" fill="#fff" stroke="{BLUE}" stroke-width="2"/>')
+        if k < 6:
+            s.raw(f'<path d="M{x + 44},538 H{x + 58}" stroke="{BLUE2}" stroke-width="2.6" stroke-linecap="round"/>')
+    s.text(500, 545, "edits and deletes are rejected", 20, weight=700)
+
+    s.raw(f'<g transform="rotate(2.5 1042 215)"><rect x="922" y="146" width="240" height="138" fill="#fff3a3" filter="url(#lift)"/>')
+    for k, line in enumerate(wrap_widths("“Hey Ultron, what am I working on?”", 22, [206])):
+        s.text(938, 184 + k * 28, line, 22, fill="#2b2b2b")
+    s.text(938, 264, "it answers from what it saw today", 16, fill=PENCIL)
+    s.raw("</g>")
+
+    s.raw(f'<path d="M1000,392 Q986,392 988,377 Q990,362 1006,364 Q1010,344 1033,346 Q1050,330 1071,344 '
+          f'Q1094,340 1098,360 Q1114,362 1112,378 Q1110,394 1094,392 Z" fill="#fff" stroke="{BLUE}" stroke-width="2.4" filter="url(#wobble)"/>')
+    s.text(1050, 382, "cloud model", 17, weight=700, anchor="middle")
+    s.text(1050, 418, "(only as a fallback)", 16, fill=PENCIL, anchor="middle")
+    s.raw(f'<path d="M852,398 C900,398 940,392 982,384" fill="none" stroke="{BLUE}" stroke-width="2.4" stroke-linecap="round"/>'
+          f'<path d="M970,377 L984,384 L972,392" fill="none" stroke="{BLUE}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>')
+    s.raw(f'<path d="M852,420 H888" stroke="{HV}" stroke-width="2.6" stroke-linecap="round"/>'
+          f'<path d="M892,412 l14,16 M906,412 l-14,16" stroke="{HV}" stroke-width="3" stroke-linecap="round"/>')
+    for k, line in enumerate(wrap_widths("goes out: text with names, paths and secrets stripped", 17, [244])):
+        s.text(918, 452 + k * 24, line, 17, fill=BLUE)
+    for k, line in enumerate(wrap_widths("never goes out: money, health, my files", 17, [244], weight=700)):
+        s.text(918, 514 + k * 24, line, 17, weight=700, fill=HV)
+    return s.render()
+
+
 # ------------------------------------------------------------------ project index cards: one doodle each
 def ill_rescuelens() -> str:
     return (f'<g transform="translate(0,40) scale(.36)">{car(stroke=4)}</g>'
@@ -324,18 +400,20 @@ def ill_neralu() -> str:
             + f'<rect x="178" y="128" width="9" height="20" fill="{HV}"/>')
 
 
-def ill_ultron() -> str:
-    out = [rough(0, 70, 200, 70, BLUE, 2.8)]
-    for n in range(19):  # one node per process
-        x, y = 5 + n * 10.5, (42 if n % 2 == 0 else 98)
-        out.append(f'<path d="M{x:.1f},70 V{y}" stroke="{BLUE2}" stroke-width="1.5"/>'
-                   f'<circle cx="{x:.1f}" cy="{y}" r="3.8" fill="#fff" stroke="{BLUE}" stroke-width="1.9"/>')
-    for k in range(5):  # hash-chained audit log
-        x = 2 + k * 40
-        out.append(f'<rect x="{x}" y="122" width="28" height="18" rx="4" fill="#fff" stroke="{BLUE}" stroke-width="1.9"/>')
-        if k < 4:
-            out.append(f'<path d="M{x + 28},131 H{x + 40}" stroke="{HV}" stroke-width="2.8" stroke-linecap="round"/>')
-    return "".join(out)
+def ill_kaavalu() -> str:
+    """An unknown caller on a phone, a risk gauge in the red, and a text to the family."""
+    gx, gy, r = 150, 70, 38
+    return (f'<rect x="6" y="22" width="70" height="120" rx="11" fill="#fff" stroke="{BLUE}" stroke-width="2.4"/>'
+            f'<path d="M30,33 H52" stroke="{BLUE}" stroke-width="2.4" stroke-linecap="round"/>'
+            f'<circle cx="41" cy="64" r="11" fill="none" stroke="{BLUE2}" stroke-width="2.2"/>'
+            f'<path d="M21,108 A20,20 0 0 1 61,108 Z" fill="none" stroke="{BLUE2}" stroke-width="2.2" stroke-linecap="round"/>'
+            f'<path d="M37,61 q0,-5 4,-5 q4,0 4,5 q0,3 -4,4 v3 M41,73 v.5" fill="none" stroke="{HV}" stroke-width="2.2" stroke-linecap="round"/>'
+            + "".join(f'<path d="M{82 + k * 7},{30 + k * 2} q{8 + k * 3},{12 - k} 0,{24 + k * 6}" fill="none" stroke="{HV}" stroke-width="2.2" stroke-linecap="round"/>' for k in range(3))
+            + f'<path d="M{gx - r},{gy} A{r},{r} 0 0 1 {gx + r},{gy}" fill="none" stroke="{BLUE2}" stroke-width="5" stroke-linecap="round"/>'
+            f'<path d="M{gx + 24.4:.1f},{gy - 29.1:.1f} A{r},{r} 0 0 1 {gx + r},{gy}" fill="none" stroke="{HV}" stroke-width="5" stroke-linecap="round"/>'
+            f'<path d="M{gx},{gy} L{gx + 26},{gy - 15}" stroke="{BLUE}" stroke-width="2.8" stroke-linecap="round"/><circle cx="{gx}" cy="{gy}" r="4" fill="{BLUE}"/>'
+            f'<rect x="128" y="104" width="46" height="32" rx="3" fill="#fff" stroke="{BLUE}" stroke-width="2.2"/>'
+            f'<path d="M128,105 L151,123 L174,105" fill="none" stroke="{BLUE}" stroke-width="2.2" stroke-linejoin="round"/>')
 
 
 def ill_dor() -> str:
@@ -371,9 +449,9 @@ CARDS = [
     dict(slug="neralu", title="Neralu", native=("ನೆರಳು", KANNADA, 400), sub="heatwave check-ins for older people", art=ill_neralu, tilt=.8,
          desc="Calls people who live alone when the heat crosses their own threshold. A worrying answer sends a volunteer to the door.",
          result="Hack4SDG 2026 finale", foot="287 tests. FastAPI, Twilio, React."),
-    dict(slug="ultron", title="ULTRON", sub="a personal AI that runs locally", art=ill_ultron, tilt=-1.0,
-         desc="19 Rust and Python processes on one authenticated WebSocket bus. Every event lands in a hash-chained audit log.",
-         result="337 tests", foot="Personal project. Rust, Python, Ollama."),
+    dict(slug="kaavalu", title="Kaavalu", native=("ಕಾವಲು", KANNADA, 400), sub="catches scam calls as they happen", art=ill_kaavalu, tilt=-1.0,
+         desc="Android app that spots a ‘digital arrest’ scam while the call is still going, warns the person in their own language and texts their family.",
+         result="no call recording, no blocklists", foot="App Lab, Kalpavikas 2.0. Kotlin, ML Kit."),
     dict(slug="dor", title="Dor", native=("डोर", HAND, 700), sub="care coordination for families", art=ill_dor, tilt=-.8,
          desc="Every missed dose, refill and doctor visit gets one responsible person, with escalation. The elder approves changes.",
          result="accessibility score 100", foot="Elder-care hackathon. Next.js, Postgres, Gemini."),
@@ -457,7 +535,7 @@ if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob("*.svg"):
         old.unlink()
-    files = {"hero.svg": hero(), "terminal.svg": terminal(), "toolbox.svg": stickies(),
+    files = {"hero.svg": hero(), "terminal.svg": terminal(), "ultron.svg": ultron_sketch(), "toolbox.svg": stickies(),
              "btn-linkedin.svg": button("connect on LinkedIn", False),
              "btn-rescuelens.svg": button("try RescueLens live", True),
              "btn-dor.svg": button("try Dor live", True)}
